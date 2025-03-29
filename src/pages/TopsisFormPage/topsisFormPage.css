@@ -1,0 +1,262 @@
+.topsis-form-page-container {
+    display: flex;
+    padding: 0% 10rem;
+    align-items: flex-start;
+    padding-bottom: 2%;
+    min-height: 83vh;
+    justify-content: flex-end;
+    gap: 2rem;
+
+    h1 {
+        font-size: 3.5rem;
+    }
+
+
+    p {
+        font-size: 1.3rem;
+        line-height: 3rem;
+    }
+    
+    figure {
+        left: 10rem;       
+        position: fixed;
+        width: 37%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        img {
+            width: 100%;
+        }
+    }
+
+
+    .forms-container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 50%;
+        height: 100%;
+        padding-top: 4%;
+
+        label {
+            font-weight: 600;
+            font-size: 1.6rem;
+        }
+
+
+        fieldset {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 100%;
+            border: none;
+
+            
+
+            .input-box {
+                display: grid;
+                grid-template-columns: 1fr 0.2fr;
+            }
+    
+            input {
+                width: 100%;
+                padding: 1rem;
+                display: flex;
+                border: .1rem solid #ccc;
+                height: 4.5rem;
+                border-radius: 2rem;
+                color: #363636cc;
+               
+                &:focus {
+                    outline: none;
+                }
+
+                &.input-addition {
+                    border-radius: 10rem 0rem 0rem 10rem;
+                    border: .1rem solid #ccc;
+                    border-right: none;
+                    height: 4.5rem;
+                    color: #363636cc;
+                    font-weight: 500;
+                }
+
+                
+            }
+
+            .button-addition {
+                border-radius: 0rem 10rem 10rem 0rem;
+                border: .1rem solid #FF3E3E;
+                border-left: none;
+                background-color: #FF3E3E;
+                color: white;
+                font-weight: 600;
+                cursor: pointer;
+                transition: 200ms all;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+            }
+
+            .filled-inputs-list {
+                display: flex;
+                gap: .5rem;
+                list-style: none;
+                color: rgb(255, 255, 255);
+
+                & li {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 4rem;
+                    padding: .5rem;
+                    border-radius: 2rem;
+                    background-color: #FF3E3E;
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                }
+            }
+
+            .list-types-criteria {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                gap: 1rem;
+                flex-wrap: wrap;
+                width: 100%;
+
+                .type-criteria {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    background-color: #FF3E3E;
+                    padding: 1.5rem;
+                    border-radius: 2rem;
+                    gap: .5rem;
+                    width: 100%;
+                    max-width: 100%;
+
+                    span {
+                        display: inline-block;
+                        font-weight: 600;
+                        font-size: 1.4rem;
+                        color: white;
+                        width: fit-content;
+                        word-wrap: break-word; /* Quebra palavras longas */
+                        overflow-wrap: break-word; /* Alternativa moderna */
+                    }
+
+                    select {
+                        border-radius: 2rem;
+                        padding: .5rem;
+                        background-color: white;
+                        border: .1rem solid #ccc;
+                        color: #363636cc;
+                        width: 100%;
+                        cursor: pointer;
+
+                        &:focus {
+                            outline: none;
+                        }
+                    }
+
+                    input {
+                        display: flex;
+                        border: .1rem solid #ccc;
+                        width: 100%;
+                        height: 3rem;
+                        border-radius: 2rem;
+                        color: #363636cc;
+                        padding: 1rem;
+                    }
+                }
+             }
+
+             
+        }
+    }
+
+    .matrix-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+        background-color: #FF3E3E;
+        padding: 1.5rem;
+        border-radius: 3rem;
+        gap: 1rem;
+
+        span {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: white;
+        }
+
+
+        .fieldset-matrix {
+            display: flex;
+
+            &:nth-child(n+2) {
+                border-top: .1rem solid #ffffff85;
+                padding-top: 1.5rem;
+            }
+
+            span {
+                background-color: #ffffff2f;
+                padding: 1rem;
+                border-radius: 10rem;
+                width: fit-content;
+            }
+        }
+
+        .list-matrix {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: .5rem;
+
+          
+            .item-matrix {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: .5rem;
+                background-color: #0000002f;
+                padding: 1rem;
+                border-radius: 2rem;
+                height: 9rem;
+
+                label {
+                    font-size: 1.4rem;
+                    color: white;
+                }
+
+                input {
+                    display: flex;
+                    border: .1rem solid #ccc;
+                    width: 100%;
+                    height: 3rem;
+                    border-radius: 2rem;
+                    color: #363636cc;
+                    padding: 1rem;
+                }
+            }
+         }
+    }   
+}
+
+
+.button {
+    &.submit {
+        padding: 1.5rem 3rem;
+        font-size: 1.4rem;
+    }
+}
+
+.u-flex-right {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: flex-end;
+}

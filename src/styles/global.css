@@ -1,0 +1,27 @@
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 5rem;
+    border: none;
+    border-radius: 10rem;
+    font-weight: 600;
+    font-size: 1.6rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 200ms;
+
+    &:hover {
+        transform: scale(1.04);
+    }
+
+    &.primary {
+        background-color: #FF3E3E;
+        color: white;  
+    }
+}
+
+p {
+    color: #363636cc;
+}
