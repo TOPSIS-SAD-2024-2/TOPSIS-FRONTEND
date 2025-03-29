@@ -4,6 +4,7 @@ import Home from "./pages/home/home.js"; // Página inicial
 
 import TopsisFormPage from "./pages/TopsisFormPage/topsisFormPage.js";
 import ResultPage from "./pages/ResultPage/resultPage.js";
+import Footer from "./layout/footer/footer.js";
 function App() {
   return (
     <Router>
@@ -16,6 +17,7 @@ function App() {
         <Route path="/Result" element={<ResultPage />} />
 
       </Routes>
+      <Footer />
     </Router>
   );
 }

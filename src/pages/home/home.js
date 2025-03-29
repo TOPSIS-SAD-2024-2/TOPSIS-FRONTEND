@@ -10,7 +10,7 @@ const Home = () => {
     <Navbar />
     <div className="home-container">
 
-        <header className="section-with-img-container">
+        <header className="section-with-img-container height-total">
             <div className="section-informations-container">
                 <h1>Bem-vindo ao Método <span>TOPSIS</span></h1>
                 <p>
@@ -35,7 +35,7 @@ const Home = () => {
             </figure>
         </header>
 
-        <section className="section-container">
+        <section className="section-container" id="whatIsTopsis">
             <h2>Para que serve o TOPSIS? 📌</h2>
             <ul>
                 <li>
@@ -53,32 +53,37 @@ const Home = () => {
             </ul>
         </section>
 
-        <section className="section-with-img-container">
+        <section className="section-with-img-container" id="howItWorks">
 
             <figure className="figure">
               <img src="assets/Questions.svg" alt="Logo" />
             </figure>
 
             <div className="section-informations-container">
-                <h2>Como funciona? ⚙️</h2>
-                <p>
-                O método <strong>TOPSIS</strong> é uma técnica de apoio à decisão que <strong>identifica a alternativa mais próxima da solução ideal</strong> (melhor opção) e se <strong>afasta da solução anti-ideal</strong> (pior opção). Para isso, utiliza uma <strong>matriz de desempenho ponderada</strong> e <strong>métricas de distância</strong>, considerando os pesos dos critérios de avaliação para oferecer uma análise clara e objetiva.
-                </p>
+                <h2>Como funciona? 🔍</h2>
+                <p>O método <strong>TOPSIS</strong> é uma ferramenta de apoio à decisão que ajuda a escolher a melhor opção entre várias alternativas. Ele faz isso comparando cada alternativa e identificando aquela que está mais próxima da <strong>solução ideal</strong> (a melhor escolha possível) e mais distante da <strong>solução anti-ideal</strong> (a pior escolha).</p>
+
+                <p>Para isso, o TOPSIS utiliza uma <strong>tabela de avaliação</strong>, onde cada alternativa recebe notas em diferentes <strong>critérios</strong>, como <strong>preço, qualidade ou prazo de entrega</strong>. Além disso, cada critério tem um <strong>peso</strong>, que define sua importância na decisão. Com esses dados, o método calcula qual alternativa se destaca mais, oferecendo uma análise clara e objetiva para facilitar a escolha.</p>
+
             </div>
         </section>
       
-        <section className="section-with-img-container">
+        <section className="section-with-img-container" id="praticalExample">
           <div className="section-informations-container">
             <h2>Exemplo prático 📊</h2>
             <p>
-              Imagine que você precisa escolher um novo fornecedor para sua empresa com base 
-              em critérios como <strong>custo, qualidade e prazo de entrega</strong>. O TOPSIS ajudaria a 
-              encontrar a melhor opção comparando todas as alternativas de forma estruturada.
+              Imagine escolher um carro com base em <strong>consumo</strong>, <strong>conforto</strong>, <strong>preço</strong> 
+              e <strong>reputação</strong>. O <strong>TOPSIS</strong> ajuda a decidir de forma objetiva, comparando alternativas 
+              com pesos definidos por você. Por exemplo, avaliamos <strong>Pálio, HB20 e Corolla</strong> com pesos: <strong>consumo (30%)</strong>, <strong>conforto (5%)</strong>, <strong>preço (60%)</strong> e <strong>reputação (5%)</strong>. 
+              A análise estrutura os dados e aponta a melhor escolha.
             </p>
+
+            <img className="table-img" src="/assets/Table-example.png" alt=""/>
+                    
           </div>
 
           <figure className="figure">
-              <img className="flip" src="assets/Solution.svg" alt="Logo" />
+              <img className="flip" src="assets/Good team.svg" alt="Logo" />
           </figure>
         </section>
 
@@ -96,7 +101,7 @@ const Home = () => {
 
             <Link to="/TopsisForm">
               <button className="button primary">
-                Começar
+                Explorar Método
                 <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
               </button>
             </Link>

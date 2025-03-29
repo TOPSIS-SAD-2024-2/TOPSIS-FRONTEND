@@ -1,0 +1,33 @@
+@import '../../styles/variables.css';
+
+.footer-container {
+    display: flex;
+    padding: 4% 10rem;
+    background-color: var(--highlight-color);
+    width: 100%;
+
+    .footer-informations-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+        justify-content: center;
+        width: 40%;
+
+        & img {
+            width: 60%;
+        }
+
+        & h2 {
+            font-size: 3rem;
+            color: white;
+        }
+
+        & p {
+            color: #ffffff;
+            font-size: 1.4rem;
+            line-height: 3.4rem;
+            text-align: justify;
+        }
+    }
+}

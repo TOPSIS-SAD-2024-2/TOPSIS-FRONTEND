@@ -186,15 +186,15 @@ function TopsisFormPage() {
           <fieldset>
             <label>Métrica de distância</label>
             <div className="">
-              <input
-                type="number"
-                value={distanceMetric}
-                onChange={(e) => setDistanceMetric(parseInt(e.target.value) || 0)}
-                placeholder="Preencha a Métrica de Distância"
-              />
+              <select className="select-distance-metric" value={distanceMetric} onChange={(e) => setDistanceMetric(e.target.value)}>
+                <option value="2">2 - (Euclidiana)</option>
+                <option value="1">1 - (Manhattan)</option>
+                <option value="inf">infinito - (Chebyshev)</option>
+              </select>
             </div>
           </fieldset>
         )}
+
 
       {(alternatives.length > 0 && criteria.length > 0) && (
         <div className="u-flex-right">

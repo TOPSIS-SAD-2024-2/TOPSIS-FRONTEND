@@ -1,4 +1,5 @@
 @import url('../../styles/global.css');
+@import url('../../styles/variables.css');
 
 .home-container {
     display: flex;
@@ -10,31 +11,46 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 90vh;
+        height: 70vh;
         width: 100%;
+
+        &.height-total {
+            height: 90vh;
+        }
 
         .section-informations-container {
             display: flex;
             flex-direction: column;
             width: 47%;
             gap: 2rem;
-
             h1 {
                 font-size: 3.5rem;
+                color: var(--title-color);
 
                 span {
-                    color: #FF3E3E;
+                    color: var(--highlight-color);
                 }
             }
 
             h2 {
                 font-size: 2.6rem;
+                color: var(--title-color);
             }
 
             p {
-                font-size: 1.7rem;
+                font-size: 1.65rem;
                 line-height: 3.4rem;
+                text-align: justify;
             }
+
+             
+
+            & .table-img {
+                width: 78%;
+            }
+            
+
+            
         }
 
         .figure {
@@ -56,9 +72,11 @@
         justify-content: center;
         align-items: center;
         width: 100%;
+        padding-top: 6rem;
 
         h2 {
             font-size: 2.6rem;
+            color: var(--title-color);
         }
 
         ul {
@@ -66,7 +84,7 @@
             grid-template-columns: 1fr 1fr 1fr;
             justify-content: space-between;
             list-style: none;
-            gap: 1rem;
+            gap: 2rem;
             width: 100%;
 
              li {
@@ -75,12 +93,19 @@
                 justify-content: center;
                 align-items: center;     
                 gap: 1rem;           
-                background-color: #FF3E3E;
+                background-color: var(--highlight-color);
                 width: 100%;
                 height: 20rem;
                 border-radius: 2rem;
                 padding: 5rem;
                 color: white;
+                transition: all .2s;
+
+                &:hover {
+                    transform: translateX(12px) translateY(-12px);
+                    box-shadow: rgba(219, 30, 47, 0.4) -5px 5px, rgba(219, 30, 47, 0.3) -10px 10px, rgba(219, 30, 47, 0.2) -15px 15px, rgba(219, 30, 47, 0.1) -20px 20px, rgba(219, 30, 47, 0.05) -25px 25px;
+                }
+    
 
                 span {
                     font-weight: 600;
