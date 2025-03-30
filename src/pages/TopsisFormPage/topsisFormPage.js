@@ -88,9 +88,9 @@ function TopsisFormPage() {
 
   return (
     <div className="topsis-form-page-container">
-      <figure>
-        <img src="assets/Forms.svg" alt="TOPSIS Method" />
-      </figure>
+      {/* <figure className="img-container">
+        <img src="assets/Forms.gif" alt="TOPSIS Method" />
+      </figure> */}
 
       <div className="forms-container">
         <h1>Insira os Dados para o Método TOPSIS</h1>

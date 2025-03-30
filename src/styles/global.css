@@ -1,3 +1,5 @@
+@import url('./variables.css');
+
 .button {
     display: flex;
     justify-content: center;
@@ -17,7 +19,7 @@
     }
 
     &.primary {
-        background-color: #FF3E3E;
+        background-color: var(--highlight-color);
         color: white;  
     }
 }
