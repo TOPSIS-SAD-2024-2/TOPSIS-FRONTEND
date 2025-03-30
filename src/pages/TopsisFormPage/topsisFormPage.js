@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import "./topsisFormPage.css";
 
 function TopsisFormPage() {
@@ -9,6 +11,8 @@ function TopsisFormPage() {
   const [criteria, setCriteria] = useState([]);
   const [performanceMatrix, setPerformanceMatrix] = useState({});
   const [distanceMetric, setDistanceMetric] = useState("");
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const addAlternative = (event) => {
     event.preventDefault();
@@ -58,8 +62,61 @@ function TopsisFormPage() {
     }));
   };
 
+  const validateForm = () => {
+    const newErrors = {};
+    
+    // Validação básica de alternativas e critérios
+    if (alternatives.length === 0) {
+      newErrors.alternatives = "Adicione pelo menos uma alternativa";
+    }
+    
+    if (criteria.length === 0) {
+      newErrors.criteria = "Adicione pelo menos um critério";
+    }
+    
+    // Validação de tipos de critérios
+    criteria.forEach(crit => {
+      if (!criteriaTypes[crit]) {
+        newErrors.criteriaTypes = "Selecione o tipo (Max/Min) para todos os critérios";
+      }
+    });
+    
+    // Validação de pesos
+    criteria.forEach(crit => {
+      const weight = criteriaWeights[crit];
+      if (!weight || isNaN(weight)) {  // Corrigido aqui
+        newErrors.weights = "Insira um peso válido para todos os critérios";
+      }
+    });
+    
+    // Validação da matriz de performance
+    alternatives.forEach(alt => {
+      criteria.forEach(crit => {
+        const value = performanceMatrix[alt]?.[crit];
+        if (value === undefined || value === "" || isNaN(value)) {
+          newErrors.performanceMatrix = "Preencha todos os valores da matriz de performance";
+        }
+      });
+    });
+    
+    // Validação da métrica de distância
+    if (!distanceMetric) {
+      newErrors.distanceMetric = "Selecione uma métrica de distância";
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    setIsSubmitting(true);
+
+    if (!validateForm()) {
+      setIsSubmitting(false);
+      return;
+    }
 
     // Converting matrix into expected format
     const performanceMatrixFormatted = {};
@@ -84,14 +141,17 @@ function TopsisFormPage() {
 
     // Redirecting to result page with the data
     navigate("/Result", { state: { inputData } });
+    setIsSubmitting(false);
+  };
+
+  const renderError = (errorKey) => {
+    return errors[errorKey] && (
+      <div className="error-message">{errors[errorKey]}</div>
+    );
   };
 
   return (
     <div className="topsis-form-page-container">
-      {/* <figure className="img-container">
-        <img src="assets/Forms.gif" alt="TOPSIS Method" />
-      </figure> */}
-
       <div className="forms-container">
         <h1>Insira os Dados para o Método TOPSIS</h1>
         <p>
@@ -101,6 +161,7 @@ function TopsisFormPage() {
 
         <fieldset>
           <label>Alternativas</label>
+          {renderError("alternatives")}
           <div className="input-box">
             <input type="text" className="input-addition" placeholder="Preencha e adicione alternativas" />
             <button className="button-addition" onClick={addAlternative}>Adicionar +</button>
@@ -112,6 +173,7 @@ function TopsisFormPage() {
 
         <fieldset>
           <label>Critérios</label>
+          {renderError("criteria")}
           <div className="input-box">
             <input type="text" className="input-addition" placeholder="Preencha e adicione critérios" />
             <button className="button-addition" onClick={addCriterion}>Adicionar +</button>
@@ -124,14 +186,20 @@ function TopsisFormPage() {
         {criteria.length > 0 && (
           <fieldset>
             <label>Tipos de Critérios (Max/Min)</label>
+            {renderError("criteriaTypes")}
             <div className="list-types-criteria">
               {criteria.map((crit, idx) => (
                 <div className="type-criteria" key={idx}>
                   <span>{crit}</span>
-                  <select onChange={(e) => updateCriterionType(crit, e.target.value)}>
-                    <option value="max">Max</option>
-                    <option value="min">Min</option>
-                  </select>
+                  <div className="select-container" >
+                    <select 
+                    onChange={(e) => updateCriterionType(crit, e.target.value)}>
+                      <option value="" selected hidden>Selecione...</option>
+                      <option value="max">Max</option>
+                      <option value="min">Min</option>
+                    </select>
+                    <FontAwesomeIcon className="angle-down-select" icon={faAngleDown} />
+                  </div>
                 </div>
               ))}
             </div>
@@ -141,13 +209,14 @@ function TopsisFormPage() {
         {criteria.length > 0 && (
           <fieldset>
             <label>Peso dos Critérios</label>
+            {renderError("weights")}
             <div className="list-types-criteria">
               {criteria.map((crit, idx) => (
                 <div className="type-criteria" key={idx}>
                   <span>{crit}</span>
                   <input
                     type="number"
-                    placeholder="0"
+                    placeholder="Ex: 7.5"
                     onChange={(e) => updateCriterionWeight(crit, e.target.value)}
                   />
                 </div>
@@ -159,6 +228,7 @@ function TopsisFormPage() {
         {alternatives.length > 0 && criteria.length > 0 && (
           <>
             <label>Matriz de Performance</label>
+            {renderError("performanceMatrix")}
             <div className="matrix-container">
                 {alternatives.map((alt, idx) => (
                   <fieldset className="fieldset-matrix" key={idx}>
@@ -170,7 +240,7 @@ function TopsisFormPage() {
                           <input
                             type="number"
                             step="0.01"
-                            placeholder="0"
+                            placeholder="Ex: 7.5"
                             onChange={(e) => updateMatrix(alt, crit, e.target.value)}
                           />
                         </div>
@@ -185,12 +255,17 @@ function TopsisFormPage() {
         {(alternatives.length > 0 && criteria.length > 0) && (
           <fieldset>
             <label>Métrica de distância</label>
+            {renderError("distanceMetric")}
             <div className="">
-              <select className="select-distance-metric" value={distanceMetric} onChange={(e) => setDistanceMetric(e.target.value)}>
-                <option value="2">2 - (Euclidiana)</option>
-                <option value="1">1 - (Manhattan)</option>
-                <option value="inf">infinito - (Chebyshev)</option>
-              </select>
+              <div className="select-container" >
+                <select className="select-distance-metric" value={distanceMetric} onChange={(e) => setDistanceMetric(e.target.value)}>
+                  <option value="" selected hidden>Selecione...</option>
+                  <option value="2">2 - (Euclidiana)</option>
+                  <option value="1">1 - (Manhattan)</option>
+                  <option value="inf">infinito - (Chebyshev)</option>
+                </select>
+                <FontAwesomeIcon className="angle-down-select" icon={faAngleDown} />
+              </div>
             </div>
           </fieldset>
         )}
@@ -198,9 +273,12 @@ function TopsisFormPage() {
 
       {(alternatives.length > 0 && criteria.length > 0) && (
         <div className="u-flex-right">
-           <button className="button primary submit" onClick={handleSubmit}>
-          Enviar Dados
-          </button>
+           <button 
+              className={`button primary submit ${isSubmitting ? 'loading' : ''}`} 
+              onClick={handleSubmit}
+              disabled={isSubmitting}>
+              {isSubmitting ? 'Processando...' : 'Enviar Dados'}
+            </button>
         </div>
       )}
       </div>

@@ -4,33 +4,31 @@
     display: flex;
     padding: 2% 10rem;
     align-items: center;
-    min-height: 83vh;
+    min-height: 100vh;
     justify-content: center;
     gap: 2rem;
-    background-color: #DB1E2F;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 800 800'%3E%3Cg fill='none' stroke='%23FFFFFF' stroke-width='1'%3E%3Cpath d='M769 229L1037 260.9M927 880L731 737 520 660 309 538 40 599 295 764 126.5 879.5 40 599-197 493 102 382-31 229 126.5 79.5-69-63'/%3E%3Cpath d='M-31 229L237 261 390 382 603 493 308.5 537.5 101.5 381.5M370 905L295 764'/%3E%3Cpath d='M520 660L578 842 731 737 840 599 603 493 520 660 295 764 309 538 390 382 539 269 769 229 577.5 41.5 370 105 295 -36 126.5 79.5 237 261 102 382 40 599 -69 737 127 880'/%3E%3Cpath d='M520-140L578.5 42.5 731-63M603 493L539 269 237 261 370 105M902 382L539 269M390 382L102 382'/%3E%3Cpath d='M-222 42L126.5 79.5 370 105 539 269 577.5 41.5 927 80 769 229 902 382 603 493 731 737M295-36L577.5 41.5M578 842L295 764M40-201L127 80M102 382L-261 269'/%3E%3C/g%3E%3Cg fill='%23FFFFFF'%3E%3Ccircle cx='769' cy='229' r='5'/%3E%3Ccircle cx='539' cy='269' r='5'/%3E%3Ccircle cx='603' cy='493' r='5'/%3E%3Ccircle cx='731' cy='737' r='5'/%3E%3Ccircle cx='520' cy='660' r='5'/%3E%3Ccircle cx='309' cy='538' r='5'/%3E%3Ccircle cx='295' cy='764' r='5'/%3E%3Ccircle cx='40' cy='599' r='5'/%3E%3Ccircle cx='102' cy='382' r='5'/%3E%3Ccircle cx='127' cy='80' r='5'/%3E%3Ccircle cx='370' cy='105' r='5'/%3E%3Ccircle cx='578' cy='42' r='5'/%3E%3Ccircle cx='237' cy='261' r='5'/%3E%3Ccircle cx='390' cy='382' r='5'/%3E%3C/g%3E%3C/svg%3E");
-
+   
     h1 {
         font-size: 3.5rem;
-        color: white;
+        color: var(--title-color);
     }
 
 
     p {
         font-size: 1.3rem;
         line-height: 3rem;
-        color: #fffbfb;
     }
     
     .img-container {     
-        width: 100%;
-        position: absolute;
+        width: 40%;
         display: flex;
-        align-items: flex-start;
+        align-items: center;
         justify-content: center;
         height: 100%;
+        
         img {
-            width: 10%;
+            top: 50%;
+            width: 90%;
         }
     }
 
@@ -42,19 +40,27 @@
         justify-content: flex-start;
         width: 60%;
         height: 100%;
-        padding: 5rem;
-        /* From https://css.glass */
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 2rem;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-        backdrop-filter: blur(8px);
-        border: 1px solid rgba(255, 255, 255, 0.3);
-
+        padding: 3rem;
+      
         label {
             font-weight: 600;
             font-size: 1.6rem;
-            color: white;
+            color: var(--title-color);
         }
+
+        .select-container {
+            display: flex;
+            position: relative;
+            width: 100%;
+
+            .angle-down-select {
+                position: absolute;
+                right: 1.5rem;
+                color: var(--title-color);
+                top: 35%;
+            }
+        }
+
 
 
         fieldset {
@@ -71,7 +77,7 @@
                 & .input-addition {
                     padding: 2rem;
                         border-radius: 10rem 0rem 0rem 10rem;
-                        border: .2rem solid #ffffff;
+                        border: .2rem solid #ccc;
                         border-right: none;
                         background-color: white;
                         height: 4.5rem;
@@ -127,7 +133,7 @@
                     align-items: flex-start;
                     background-color: var(--highlight-color);
                     padding: 1.5rem;
-                    border-radius: 2rem;
+                    border-radius: 1rem;
                     gap: .5rem;
                     width: 100%;
                     max-width: 100%;
@@ -142,9 +148,11 @@
                         overflow-wrap: break-word; /* Alternativa moderna */
                     }
 
+                    
                     select {
-                        border-radius: 2rem;
-                        padding: .5rem;
+                        appearance: none;
+                        border-radius: 1rem;
+                        padding: 1rem;
                         background-color: white;
                         border: .1rem solid #ccc;
                         color: #363636cc;
@@ -161,7 +169,7 @@
                         border: .1rem solid #ccc;
                         width: 100%;
                         height: 3rem;
-                        border-radius: 2rem;
+                        border-radius: 1rem;
                         color: #363636cc;
                         padding: 1rem;
                     }
@@ -179,7 +187,7 @@
         max-width: 100%;
         background-color: var(--highlight-color);
         padding: 1.5rem;
-        border-radius: 3rem;
+        border-radius: 1rem;
         gap: 1rem;
 
         span {
@@ -216,10 +224,11 @@
                 flex-direction: column;
                 justify-content: center;
                 gap: .5rem;
-                background-color: #0000002f;
-                padding: 1rem;
-                border-radius: 2rem;
-                height: 9rem;
+    
+                background-color: #ffffff2f;
+                padding: 1.5rem;
+                border-radius: 1rem;
+                min-height: 9rem;
 
                 label {
                     font-size: 1.4rem;
@@ -231,7 +240,7 @@
                     border: .1rem solid #ccc;
                     width: 100%;
                     height: 3rem;
-                    border-radius: 2rem;
+                    border-radius: 1rem;
                     color: #363636cc;
                     padding: 1rem;
                 }
@@ -256,9 +265,11 @@
 }
 
 .select-distance-metric {
+    appearance: none;
     height: 4.5rem;
     border-radius: 10rem;
     padding: 1rem;
+    padding-left: 2rem;
     background-color: white;
     border: .1rem solid #ccc;
     color: #363636cc;
@@ -269,4 +280,35 @@
         outline: none;
     }
     
+}
+
+.error-message {
+    color: red;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+@media screen and (min-width: 1600px) {
+    .topsis-form-page-container {
+        min-height: 100vh;
+
+        h1 {
+            font-size: 4rem;
+            color: var(--title-color);
+        }
+
+        p {
+            font-size: 1.6rem;
+            line-height: 3rem;
+            text-align: justify;
+        }
+
+        input, select {
+            font-size: 1.6rem !important;
+        }
+
+        .button-addition {
+            font-size: 1.6rem !important;
+        }
+    }
 }

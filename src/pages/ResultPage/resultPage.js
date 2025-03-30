@@ -38,7 +38,7 @@ function ResultPage() {
         C2: 0.3,
         C3: 0.3
       },
-      distance_metric: 2
+      distance_metric: "2"
     }
   };
 
@@ -80,17 +80,21 @@ function ResultPage() {
       if (!response.ok) throw new Error("Arquivo Python não encontrado");
       const pythonCode = await response.text();
 
-      // 2. Injeta os dados no contexto Python
-      pyodideInstance.globals.set("input_data", JSON.stringify(input));
-
       // 3. Executa o código
       await pyodideInstance.runPythonAsync(pythonCode);
 
-      // 4. Obtém o resultado (assumindo que seu Python expõe get_input_data)
-      const resultProxy = pyodideInstance.globals.get("get_input_data")(JSON.stringify(input));
-      const result = resultProxy.toJs({ dict_converter: Object.fromEntries });
+      pyodideInstance.globals.set('input_json', JSON.stringify(defaultInput));
 
-      return result;
+      const result = await pyodideInstance.runPythonAsync(`
+        input_data = json.loads(input_json)
+        topsis = TOPSIS(input_data=input_data)
+        result = topsis.calculate()
+        json.dumps(result, indent=2)
+      `);
+      console.log(result);
+      return JSON.parse(result);
+
+      
     } catch (err) {
       console.error("Erro na execução Python:", err);
       setError("Erro ao processar os dados");
@@ -164,11 +168,13 @@ function ResultPage() {
           <div className="result-box score">
             <h4>Scores TOPSIS</h4>
             <ul>
-              {Object.entries(result.results.topsis_score).map(([alternative, value]) => (
-                <li key={alternative}>
-                  <strong>{alternative}</strong> {value.toFixed(4)}
-                </li>
-              ))}
+              {Object.entries(result.results.topsis_score)
+                .sort((a, b) => b[1] - a[1]) // Ordena do maior para o menor
+                .map(([alternative, value]) => (
+                  <li key={alternative}>
+                    <strong>{alternative}</strong> {value.toFixed(4)}
+                  </li>
+                ))}
             </ul>
           </div>
         </div>

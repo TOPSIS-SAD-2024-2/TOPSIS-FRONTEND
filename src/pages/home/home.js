@@ -12,6 +12,7 @@ const Home = () => {
 
         <header className="section-with-img-container height-total">
             <div className="section-informations-container">
+              
                 <h1>Bem-vindo ao Método <span>TOPSIS</span></h1>
                 <p>
                     O <strong>Técnica para Ordem de Preferência por Similaridade com a Solução Ideal</strong> 

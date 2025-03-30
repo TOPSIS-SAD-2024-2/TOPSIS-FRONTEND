@@ -6,16 +6,16 @@
     flex-direction: column;
     align-items: center;
     padding: 0% 10rem;
+    gap: 2rem;
 
     .section-with-img-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 70vh;
         width: 100%;
 
         &.height-total {
-            height: 90vh;
+            height: 100vh;
         }
 
         .section-informations-container {
@@ -48,9 +48,7 @@
             & .table-img {
                 width: 78%;
             }
-            
 
-            
         }
 
         .figure {
@@ -72,8 +70,7 @@
         justify-content: center;
         align-items: center;
         width: 100%;
-        padding-top: 6rem;
-
+        
         h2 {
             font-size: 2.6rem;
             color: var(--title-color);
@@ -123,3 +120,103 @@
     }
 }
 
+@media screen and (min-width: 1600px) {
+    .home-container {
+        gap: 2rem;
+        .section-with-img-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-width: 80vh;
+            width: 100%;
+
+            &.height-total {
+                height: 100vh;
+            }
+
+            .section-informations-container {
+                display: flex;
+                flex-direction: column;
+                width: 44%;
+                gap: 2rem;
+                h1 {
+                    font-size: 4.5rem;
+                    color: var(--title-color);
+    
+                    span {
+                        color: var(--highlight-color);
+                    }
+                }
+    
+                h2 {
+                    font-size: 3.5rem;
+                    color: var(--title-color);
+                }
+    
+                p {
+                    font-size: 1.8rem;
+                    line-height: 3.4rem;
+                    text-align: justify;
+                }
+
+                & .table-img {
+                    width: 85%;
+                }
+            }
+        }
+
+        .section-container {
+            
+            h2 {
+                font-size: 3.5rem;
+            }
+    
+            ul {
+                 li {
+
+                    span {
+                        font-weight: 600;
+                        font-size: 2.2rem;
+                    }
+    
+                    p {
+                        font-size: 1.7rem;
+                        font-weight: 400;
+                        text-align: center;
+                        color: rgb(224, 248, 251);
+                    }
+                 }
+            }
+        }
+
+        
+    }
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem 8rem;
+    border: none;
+    border-radius: 10rem;
+    font-weight: 600;
+    font-size: 1.8rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 200ms;
+
+    &:hover {
+        transform: scale(1.04);
+    }
+
+    &.primary {
+        background-color: var(--highlight-color);
+        color: white;  
+    }
+}
+
+p {
+    color: #363636cc;
+}
