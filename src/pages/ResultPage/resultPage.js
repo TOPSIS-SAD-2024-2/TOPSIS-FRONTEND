@@ -42,6 +42,8 @@ function ResultPage() {
     }
   };
 
+  
+
   // Carrega o Pyodide uma vez quando o componente monta
   const initializePyodide = useCallback(async () => {
     try {
@@ -83,7 +85,9 @@ function ResultPage() {
       // 3. Executa o código
       await pyodideInstance.runPythonAsync(pythonCode);
 
-      pyodideInstance.globals.set('input_json', JSON.stringify(defaultInput));
+      console.log(inputData)
+
+      pyodideInstance.globals.set('input_json', JSON.stringify(inputData));
 
       const result = await pyodideInstance.runPythonAsync(`
         input_data = json.loads(input_json)
@@ -172,7 +176,7 @@ function ResultPage() {
                 .sort((a, b) => b[1] - a[1]) // Ordena do maior para o menor
                 .map(([alternative, value]) => (
                   <li key={alternative}>
-                    <strong>{alternative}</strong> {value.toFixed(4)}
+                    <strong>{alternative}</strong> {value}
                   </li>
                 ))}
             </ul>
@@ -180,50 +184,62 @@ function ResultPage() {
         </div>
 
         <div className="box-1">
-          <div className="result-box small-list">
-            <h4>Solução Ideal Positiva</h4>
-            <ul>
-              {Object.entries(result.results.positive_ideal_solution).map(([criterion, value]) => (
-                <li key={criterion}>
-                  <strong>{criterion}:</strong> {value.toFixed(4)}
-                </li>
-              ))}
-            </ul>
+            {/* Solução Ideal Positiva (ordenada por valor) */}
+            <div className="result-box small-list">
+              <h4>Solução Ideal Positiva</h4>
+              <ul>
+                {Object.entries(result.results.positive_ideal_solution)
+                  .sort(([, a], [, b]) => a - b) // Ordena do maior para o menor
+                  .map(([criterion, value]) => (
+                    <li key={criterion}>
+                      <strong>{criterion}:</strong> {value}
+                    </li>
+                  ))}
+              </ul>
+            </div>
+            
+            {/* Solução Ideal Negativa (ordenada por valor) */}
+            <div className="result-box small-list">
+              <h4>Solução Ideal Negativa</h4>
+              <ul>
+                {Object.entries(result.results.negative_ideal_solution)
+                  .sort(([, a], [, b]) => b - a) // Ordena do maior para o menor
+                  .map(([criterion, value]) => (
+                    <li key={criterion}>
+                      <strong>{criterion}:</strong> {value}
+                    </li>
+                  ))}
+              </ul>
+            </div>
+            
+            {/* Distância PIS (ordenada por valor) */}
+            <div className="result-box small-list">
+              <h4>Distância para a Solução Ideal Positiva</h4>
+              <ul>
+                {Object.entries(result.results.distance_to_pis)
+                  .sort(([, a], [, b]) => a - b) // Ordena do maior para o menor
+                  .map(([alternative, value]) => (
+                    <li key={alternative}>
+                      <strong>{alternative}:</strong> {value}
+                    </li>
+                  ))}
+              </ul>
+            </div>
+            
+            {/* Distância NIS (ordenada por valor) */}
+            <div className="result-box small-list">
+              <h4>Distância para a Solução Ideal Negativa</h4>
+              <ul>
+                {Object.entries(result.results.distance_to_nis)
+                  .sort(([, a], [, b]) => a - b) // Ordena do maior para o menor
+                  .map(([alternative, value]) => (
+                    <li key={alternative}>
+                      <strong>{alternative}:</strong> {value}
+                    </li>
+                  ))}
+              </ul>
+            </div>
           </div>
-          
-          <div className="result-box small-list">
-            <h4>Solução Ideal Negativa</h4>
-            <ul>
-              {Object.entries(result.results.negative_ideal_solution).map(([criterion, value]) => (
-                <li key={criterion}>
-                  <strong>{criterion}:</strong> {value.toFixed(4)}
-                </li>
-              ))}
-            </ul>
-          </div>
-          
-          <div className="result-box small-list">
-            <h4>Distância para a Solução Ideal Positiva</h4>
-            <ul>
-              {Object.entries(result.results.distance_to_pis).map(([alternative, value]) => (
-                <li key={alternative}>
-                  <strong>{alternative}:</strong> {value.toFixed(4)}
-                </li>
-              ))}
-            </ul>
-          </div>
-          
-          <div className="result-box small-list">
-            <h4>Distância para a Solução Ideal Negativa</h4>
-            <ul>
-              {Object.entries(result.results.distance_to_nis).map(([alternative, value]) => (
-                <li key={alternative}>
-                  <strong>{alternative}:</strong> {value.toFixed(4)}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
       </div>
     );
   };

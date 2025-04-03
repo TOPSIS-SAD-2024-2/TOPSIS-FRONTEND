@@ -41,6 +41,12 @@
         width: 60%;
         height: 100%;
         padding: 3rem;
+
+        .label-box {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
       
         label {
             font-weight: 600;
@@ -52,6 +58,7 @@
             display: flex;
             position: relative;
             width: 100%;
+            height: 100%;
 
             .angle-down-select {
                 position: absolute;
@@ -76,17 +83,17 @@
         
                 & .input-addition {
                     padding: 2rem;
-                        border-radius: 10rem 0rem 0rem 10rem;
-                        border: .2rem solid #ccc;
+                        border-radius: 1rem 0rem 0rem 1rem;
+                        border: .1rem solid #ccc;
                         border-right: none;
-                        background-color: white;
+                        background-color: #F5F5F5;
                         height: 4.5rem;
                         color: var(--text-color);
                         font-weight: 500;
                 }
 
                 & .button-addition {
-                    border-radius: 0rem 10rem 10rem 0rem;
+                    border-radius: 0rem 1rem 1rem 0rem;
                     border: .1rem solid var(--highlight-color);
                     border-left: none;
                     background-color: var(--highlight-color);
@@ -113,36 +120,37 @@
                     align-items: center;
                     width: fit-content;
                     padding: .5rem;
-                    border-radius: 2rem;
+                    border-radius: 1rem;
                     background-color: var(--highlight-color);
-                    font-size: 1.2rem;
+                    font-size: 1.4rem;
                     font-weight: 600;
                 }
             }
 
             .list-types-criteria {
                 display: grid;
-                grid-template-columns: 1fr 1fr 1fr 1fr;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
                 gap: 1rem;
                 flex-wrap: wrap;
                 width: 100%;
 
                 .type-criteria {
                     display: flex;
-                    flex-direction: column;
-                    align-items: flex-start;
-                    background-color: var(--highlight-color);
-                    padding: 1.5rem;
+                    justify-content: center;
+                    align-items: center;
                     border-radius: 1rem;
-                    gap: .5rem;
                     width: 100%;
                     max-width: 100%;
 
                     span {
-                        display: inline-block;
+                        display: flex;
+                        height: 100%;
                         font-weight: 600;
-                        font-size: 1.4rem;
+                        padding: 1rem 1.5rem;
+                        font-size: 1.6rem;
+                        background-color: var(--highlight-color);
                         color: white;
+                        border-radius: 1rem 0rem 0rem 1rem;
                         width: fit-content;
                         word-wrap: break-word; /* Quebra palavras longas */
                         overflow-wrap: break-word; /* Alternativa moderna */
@@ -151,27 +159,37 @@
                     
                     select {
                         appearance: none;
-                        border-radius: 1rem;
+                        border-radius: 0rem 1rem 1rem 0rem;
                         padding: 1rem;
-                        background-color: white;
+                        background-color: #F5F5F5;
                         border: .1rem solid #ccc;
-                        color: #363636cc;
+                        color: var(--text-color);
                         width: 100%;
                         cursor: pointer;
 
                         &:focus {
                             outline: none;
                         }
+
+                        & option {
+                            background-color: var(--highlight-color);
+                            color: white;
+                        }
+                    }
+
+                    .angle-down-select {
+                        color: var(--text-color);
                     }
 
                     input {
                         display: flex;
                         border: .1rem solid #ccc;
+                        background-color: #F5F5F5;
                         width: 100%;
-                        height: 3rem;
-                        border-radius: 1rem;
-                        color: #363636cc;
+                        height: 100%;
+                        border-radius: 0rem 1rem 1rem 0rem;
                         padding: 1rem;
+                        color: var(--text-color);
                     }
                 }
              }
@@ -185,8 +203,6 @@
         flex-direction: column;
         width: 100%;
         max-width: 100%;
-        background-color: var(--highlight-color);
-        padding: 1.5rem;
         border-radius: 1rem;
         gap: 1rem;
 
@@ -201,37 +217,39 @@
             display: flex;
 
             &:nth-child(n+2) {
-                border-top: .1rem solid #ffffff85;
-                padding-top: 1.5rem;
+                border-top: .1rem solid #ccc;
+                padding-top: 1rem;
             }
 
             span {
-                background-color: #ffffff2f;
+                background-color: var(--highlight-color);
                 padding: 1rem;
-                border-radius: 10rem;
+                border-radius: 1rem;
                 width: fit-content;
+                color: white;
+                font-size: 1.6rem;
             }
         }
 
         .list-matrix {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            gap: .5rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
 
           
             .item-matrix {
                 display: flex;
-                flex-direction: column;
                 justify-content: center;
-                gap: .5rem;
-    
-                background-color: #ffffff2f;
-                padding: 1.5rem;
+                background-color: #F5F5F5;
                 border-radius: 1rem;
-                min-height: 9rem;
 
                 label {
-                    font-size: 1.4rem;
+                    display: flex;
+                    padding: 1rem 1.5rem;
+                    border-radius: 1rem 0rem 0rem 1rem;
+                    background-color: var(--highlight-color);
+                    font-size: 1.6rem;
+                    height: 100%;
                     color: white;
                 }
 
@@ -239,9 +257,10 @@
                     display: flex;
                     border: .1rem solid #ccc;
                     width: 100%;
-                    height: 3rem;
-                    border-radius: 1rem;
-                    color: #363636cc;
+                    height: 100%;
+                    background-color: #F5F5F5;
+                    border-radius: 0rem 1rem 1rem 0rem;
+                    color: var(--text-color);
                     padding: 1rem;
                 }
             }
@@ -252,8 +271,9 @@
 
 .button {
     &.submit {
-        padding: 1.5rem 3rem;
-        font-size: 1.4rem;
+        width: 100%;
+        border-radius: 1rem;
+        font-size: 1.7rem;
     }
 }
 
@@ -267,10 +287,10 @@
 .select-distance-metric {
     appearance: none;
     height: 4.5rem;
-    border-radius: 10rem;
+    border-radius: 1rem;
     padding: 1rem;
     padding-left: 2rem;
-    background-color: white;
+    background-color: #F5F5F5;
     border: .1rem solid #ccc;
     color: #363636cc;
     width: 100%;
@@ -303,12 +323,24 @@
             text-align: justify;
         }
 
+        .forms-container {
+            width: 55%;
+        }
+
         input, select {
             font-size: 1.6rem !important;
         }
 
         .button-addition {
             font-size: 1.6rem !important;
+        }
+
+        .button {
+            &.submit {
+                width: 100%;
+                border-radius: 1rem;
+                font-size: 1.8rem;
+            }
         }
     }
 }

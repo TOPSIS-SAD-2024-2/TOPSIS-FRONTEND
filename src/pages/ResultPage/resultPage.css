@@ -3,7 +3,7 @@
 .result-page-container {
     display: flex;
     flex-direction: column;
-    padding: 4% 10rem;
+    padding: 3% 6%;
     min-height: 100vh;
     align-items: flex-start;
     justify-content: flex-start;
@@ -32,9 +32,9 @@
             display: flex;
             flex-direction: column;
             gap: 3rem;
-        
-            background-color: #ff2424cf;
-            color: white;
+            background-color: #F5F5F5;
+            border: .1rem solid #ccc;
+            color: rgb(38, 38,38);
             padding: 2rem;
             border-radius: 1rem;
 
@@ -57,10 +57,11 @@
                         width: 100%;
                         padding: 1rem;
                         border-radius: 1rem;
-                        background-color: #ffffff2f;
+                        background-color: var(--highlight-color);
                         gap: 2rem;
                         font-size: 2.5rem;
                         font-weight: 500;
+                        color: white;
     
                         & strong {
                             font-size: 4rem;
@@ -93,7 +94,8 @@
                         width: 100%;
                         padding: 1rem;
                         border-radius: 1rem;
-                        background-color: #ffffff2f;
+                        background-color: var(--highlight-color);
+                        color: white;
                         gap: 2rem;
                         font-size: 1.6rem;
                         font-weight: 500;
@@ -169,3 +171,14 @@ ul, ol {
   to{transform: translate(-50%, -55%) rotate(-45deg) rotateY(360deg)   }
 }
     
+@media screen and (min-width: 1600px) {
+    .result-page-container {
+        display: flex;
+        flex-direction: column;
+        padding: 4% 6%;
+        min-height: 100vh;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 2rem;
+    }
+}

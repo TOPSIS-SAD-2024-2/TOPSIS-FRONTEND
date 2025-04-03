@@ -39,7 +39,7 @@ function TopsisFormPage() {
       ...prev,
       [alt]: {
         ...prev[alt],
-        [crit]: value
+        [crit]: Number(value)
       }
     }));
   };
@@ -58,7 +58,7 @@ function TopsisFormPage() {
   const updateCriterionWeight = (crit, value) => {
     setCriteriaWeights((prev) => ({
       ...prev,
-      [crit]: value
+      [crit]: Number(value)
     }));
   };
 
@@ -146,7 +146,7 @@ function TopsisFormPage() {
 
   const renderError = (errorKey) => {
     return errors[errorKey] && (
-      <div className="error-message">{errors[errorKey]}</div>
+      <div className="error-message">- {errors[errorKey]}</div>
     );
   };
 
@@ -172,6 +172,7 @@ function TopsisFormPage() {
         </fieldset>
 
         <fieldset>
+          
           <label>Critérios</label>
           {renderError("criteria")}
           <div className="input-box">
@@ -185,8 +186,11 @@ function TopsisFormPage() {
 
         {criteria.length > 0 && (
           <fieldset>
-            <label>Tipos de Critérios (Max/Min)</label>
-            {renderError("criteriaTypes")}
+            <div className="label-box">
+              <label>Tipos de Critérios (Max/Min)</label>
+              {renderError("criteriaTypes")}
+            </div>
+            
             <div className="list-types-criteria">
               {criteria.map((crit, idx) => (
                 <div className="type-criteria" key={idx}>
@@ -208,8 +212,11 @@ function TopsisFormPage() {
 
         {criteria.length > 0 && (
           <fieldset>
-            <label>Peso dos Critérios</label>
-            {renderError("weights")}
+            <div className="label-box">
+              <label>Peso dos Critérios</label>
+              {renderError("weights")}
+            </div>
+            
             <div className="list-types-criteria">
               {criteria.map((crit, idx) => (
                 <div className="type-criteria" key={idx}>
@@ -227,8 +234,11 @@ function TopsisFormPage() {
 
         {alternatives.length > 0 && criteria.length > 0 && (
           <>
-            <label>Matriz de Performance</label>
-            {renderError("performanceMatrix")}
+            <div className="label-box">
+              <label>Matriz de Performance</label>
+              {renderError("performanceMatrix")}
+            </div>
+           
             <div className="matrix-container">
                 {alternatives.map((alt, idx) => (
                   <fieldset className="fieldset-matrix" key={idx}>
@@ -254,8 +264,11 @@ function TopsisFormPage() {
 
         {(alternatives.length > 0 && criteria.length > 0) && (
           <fieldset>
-            <label>Métrica de distância</label>
-            {renderError("distanceMetric")}
+            <div className="label-box">
+              <label>Métrica de distância</label>
+              {renderError("distanceMetric")}
+            </div>
+           
             <div className="">
               <div className="select-container" >
                 <select className="select-distance-metric" value={distanceMetric} onChange={(e) => setDistanceMetric(e.target.value)}>
@@ -277,7 +290,7 @@ function TopsisFormPage() {
               className={`button primary submit ${isSubmitting ? 'loading' : ''}`} 
               onClick={handleSubmit}
               disabled={isSubmitting}>
-              {isSubmitting ? 'Processando...' : 'Enviar Dados'}
+              {isSubmitting ? 'Processando...' : 'Enviar'}
             </button>
         </div>
       )}

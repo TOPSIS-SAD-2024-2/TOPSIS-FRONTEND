@@ -14,7 +14,32 @@ const Footer = () => {
 
             <p>©SAD TOPSIS LTD 2025. All rights reserved</p>
         </div>
-        <div>
+        <div className="footer-list-info-container">
+          <div className="info">
+            <h4>Equipe</h4>
+            <ul>
+              <li>Lucas Luis de Souza</li>
+              <li>Mateus Olegario</li>
+              <li>Letícia Leitão</li>
+              <li>João Nolasco</li>
+              <li>Guilherme Caio</li>
+              <li>Pauline Duarte</li>
+            </ul> 
+          </div>
+
+          <div className="info">
+            <h4>Disciplina</h4>
+            <ul>
+              <li>Sistemas de Apoio a Decisão</li>
+            </ul> 
+          </div>
+
+          <div className="info">
+            <h4>Professor</h4>
+            <ul>
+              <li>Adiel Teixeira de Almeida Filho</li>
+            </ul> 
+          </div>
 
         </div>
     </footer>

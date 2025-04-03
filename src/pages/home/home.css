@@ -5,7 +5,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0% 10rem;
     gap: 2rem;
 
     .section-with-img-container {
@@ -13,10 +12,16 @@
         justify-content: space-between;
         align-items: center;
         width: 100%;
+        padding: 0% 6%;
 
         &.height-total {
             height: 100vh;
         }
+
+        &.different-background {
+            background-color: #F5F5F5;
+        }
+
 
         .section-informations-container {
             display: flex;
@@ -70,6 +75,9 @@
         justify-content: center;
         align-items: center;
         width: 100%;
+        background-color: #F5F5F5;
+        padding: 10rem 6%;
+
         
         h2 {
             font-size: 2.6rem;
@@ -122,16 +130,20 @@
 
 @media screen and (min-width: 1600px) {
     .home-container {
-        gap: 2rem;
         .section-with-img-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             min-width: 80vh;
             width: 100%;
+            padding: 0% 6%;
 
             &.height-total {
                 height: 100vh;
+            }
+
+            &.different-background {
+                background-color: #F5F5F5;
             }
 
             .section-informations-container {
@@ -167,6 +179,7 @@
 
         .section-container {
             
+
             h2 {
                 font-size: 3.5rem;
             }
@@ -200,15 +213,17 @@
     gap: 1rem;
     padding: 1.5rem 8rem;
     border: none;
-    border-radius: 10rem;
+    border-radius: 1rem;
     font-weight: 600;
     font-size: 1.8rem;
     text-decoration: none;
     cursor: pointer;
     transition: 200ms;
+    color: var(--title-color);
 
     &:hover {
-        transform: scale(1.04);
+        transform: translateY(-0.3rem);
+        box-shadow: rgba(238, 85, 34, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
     }
 
     &.primary {

@@ -21,7 +21,7 @@ const Home = () => {
                     avaliação.
                 </p>
 
-                <Link to="/TopsisForm">
+                <Link to="/guide">
                   <button className="button primary">
                     Explorar Método
                     <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
@@ -69,7 +69,7 @@ const Home = () => {
             </div>
         </section>
       
-        <section className="section-with-img-container" id="praticalExample">
+        <section className="section-with-img-container different-background" id="praticalExample">
           <div className="section-informations-container">
             <h2>Exemplo prático 📊</h2>
             <p>
