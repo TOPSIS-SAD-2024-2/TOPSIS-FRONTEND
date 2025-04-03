@@ -56,9 +56,10 @@ function TopsisFormPage() {
   const [criteriaWeights, setCriteriaWeights] = useState({});
 
   const updateCriterionWeight = (crit, value) => {
+    const numericValue = Number(value.replace(",", "."));
     setCriteriaWeights((prev) => ({
       ...prev,
-      [crit]: Number(value)
+      [crit]: isNaN(numericValue) ? 0 : numericValue, // Evita NaN
     }));
   };
 
@@ -223,7 +224,14 @@ function TopsisFormPage() {
                   <span>{crit}</span>
                   <input
                     type="number"
-                    placeholder="Ex: 7.5"
+                    placeholder="Ex: 0.3"
+                    min="0"
+                    max="1"
+                    step="0.01"
+                    onInput={(e) => {
+                      if (e.target.value < 0) e.target.value = 0;
+                      if (e.target.value > 1) e.target.value = 1;
+                    }}
                     onChange={(e) => updateCriterionWeight(crit, e.target.value)}
                   />
                 </div>

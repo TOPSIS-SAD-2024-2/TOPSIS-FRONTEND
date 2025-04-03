@@ -162,7 +162,7 @@ function ResultPage() {
             <h4>Ranking das Alternativas</h4>
             <ol>
               {result.results.ranking.map((alternative, index) => (
-                <li key={alternative}>
+                <li key={alternative}  style={{ display: "flex", flexDirection: "column" }}>
                   <strong>{index + 1}º</strong> {alternative}
                 </li>
               ))}
@@ -175,7 +175,7 @@ function ResultPage() {
               {Object.entries(result.results.topsis_score)
                 .sort((a, b) => b[1] - a[1]) // Ordena do maior para o menor
                 .map(([alternative, value]) => (
-                  <li key={alternative}>
+                  <li key={alternative} style={{ display: "flex", flexDirection: "column" }}>
                     <strong>{alternative}</strong> {value}
                   </li>
                 ))}
