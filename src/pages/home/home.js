@@ -88,7 +88,7 @@ const Home = () => {
         </section>
 
   
-        <section className="section-with-img-container different-background">
+        <section className="section-with-img-container different-background" id="continueSection">
           <figure className="figure">
               <img className="flip" src="assets/continue.svg" alt="Logo" />
           </figure>

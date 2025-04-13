@@ -30,3 +30,21 @@
 
     }
 }
+
+@media screen and (max-width: 720px) { 
+    .button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.5rem 5rem;
+        border: none;
+        border-radius: 1.5rem;
+        font-weight: 600;
+        font-size: 1.8rem;
+        text-decoration: none;
+        cursor: pointer;
+        transition: 200ms;
+        color: var(--title-color);
+    }
+}

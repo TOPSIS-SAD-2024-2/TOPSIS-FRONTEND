@@ -225,3 +225,165 @@ p {
     color: #363636cc;
     line-height: 3.4rem;
 }
+
+
+@media screen and (max-width: 720px) {
+    .home-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .button.primary, .button.terciary {
+            width: 100% !important;
+        }
+
+        section.section-with-img-container {
+            gap: 2rem;
+
+            &#howItWorks {
+                padding-bottom: 4rem;
+            }
+
+            &#praticalExample {
+                padding-top: 5rem;
+            }
+
+            &#continueSection {
+                padding-top: 5rem;
+                flex-direction: column-reverse;
+            }
+        }
+    
+        .section-with-img-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 0% 10%;
+
+            &.height-total {
+                padding-top: 30%;
+                min-height: 100vh;
+                height: auto;
+            }
+           
+    
+            .section-informations-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                gap: 1rem;
+                h1 {
+                    font-size: 3.3rem;
+                    color: white;
+                    line-height: 4.7rem;
+                    text-align: center;
+    
+                    span {
+                        color: white;
+                    }
+                }
+    
+                h2 {
+                    font-size: 2.3rem;
+                    color: var(--title-color);
+                }
+    
+                p {
+                    font-size: 1.4rem;
+                    line-height: 3rem;
+                    text-align: justify;
+                }
+
+                a {
+                    width: 100%;
+                }
+    
+                & .table-img {
+                    width: 100%;
+                }
+    
+            }
+
+            .figure {
+                display: flex;
+                align-items: flex-end;
+                height: fit-content;
+                width: 100%;
+                img {
+                    width: 100%;
+    
+                    &.flip {
+                        transform: none;
+                    }
+                }
+            }
+        }
+    
+        .section-container {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            background-color: #F5F5F5;
+            padding: 5rem 10%;
+            padding-bottom: 2rem;
+    
+            
+            h2 {
+                font-size: 2.2rem;
+                color: var(--title-color);
+                text-align: center;
+            }
+    
+            ul {
+                display: grid;
+                grid-template-columns: 1fr;
+                justify-content: space-between;
+                list-style: none;
+                gap: 2rem;
+                width: 100%;
+    
+                 li {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;     
+                    gap: 1rem;           
+                    background: linear-gradient(106deg, rgba(219,30,47,1) 55%, rgba(255,165,109,1) 100%);
+                    width: 100%;
+                    height: 20rem;
+                    border-radius: 2rem;
+                    padding: 3rem;
+                    color: white;
+                    transition: all .2s;
+    
+                    &:hover {
+                        transform: translateX(12px) translateY(-12px);
+                        box-shadow: rgba(219, 30, 47, 0.4) -5px 5px, rgba(219, 30, 47, 0.3) -10px 10px, rgba(219, 30, 47, 0.2) -15px 15px, rgba(219, 30, 47, 0.1) -20px 20px, rgba(219, 30, 47, 0.05) -25px 25px;
+                    }
+        
+    
+                    span {
+                        font-weight: 600;
+                        font-size: 1.6rem;
+                        text-align: center;
+                    }
+    
+                    p {
+                        font-size: 1.3rem;
+                        font-weight: 400;
+                        line-height: 2rem;
+                        text-align: center;
+                        color: white;
+                    }
+                 }
+            }
+        }
+    }
+}

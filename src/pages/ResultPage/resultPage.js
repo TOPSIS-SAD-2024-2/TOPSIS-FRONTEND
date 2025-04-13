@@ -86,7 +86,7 @@ function ResultPage() {
       await pyodideInstance.runPythonAsync(pythonCode);
 
 
-      pyodideInstance.globals.set('input_json', JSON.stringify(inputData));
+      pyodideInstance.globals.set('input_json', JSON.stringify(defaultInput));
 
       const result = await pyodideInstance.runPythonAsync(`
         input_data = json.loads(input_json)

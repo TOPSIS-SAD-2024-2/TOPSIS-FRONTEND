@@ -114,6 +114,7 @@
                 gap: .5rem;
                 list-style: none;
                 color: rgb(255, 255, 255);
+                flex-wrap: wrap;
 
                 & li {
                     display: flex;
@@ -376,6 +377,38 @@
                 width: 100%;
                 border-radius: 1rem;
                 font-size: 1.8rem;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 720px) {
+    .topsis-form-page-container {
+        display: flex;
+        padding: 10%;
+        align-items: center;
+        min-height: 100vh;
+        justify-content: center;
+        gap: 2rem;
+       
+        .forms-container {
+            width: 100%;
+            padding: 0;
+
+            h1 {
+                color: var(--title-color);
+                text-align: center;
+                line-height: 4rem;
+                font-size: 3.5rem;
+            }
+
+            p {
+                text-align: center;
+            }
+
+            .input-box {
+                grid-template-columns: 1fr 1fr !important;
             }
         }
     }
