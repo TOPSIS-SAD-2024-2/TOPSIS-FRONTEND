@@ -5,7 +5,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
 
     .section-with-img-container {
         display: flex;
@@ -16,6 +15,12 @@
 
         &.height-total {
             height: 100vh;
+            background: rgb(219,30,47);
+            background: linear-gradient(106deg, rgba(219,30,47,1) 55%, rgba(255,165,109,1) 100%);
+
+            p {
+                color: white;
+            }
         }
 
         &.different-background {
@@ -30,7 +35,7 @@
             gap: 2rem;
             h1 {
                 font-size: 3.5rem;
-                color: var(--title-color);
+                color: white;
 
                 span {
                     color: var(--highlight-color);
@@ -57,13 +62,16 @@
         }
 
         .figure {
+            display: flex;
+            align-items: flex-end;
+            height: 100%;
             width: 45%;
             img {
                 width: 100%;
-            }
 
-            img.flip {
-                transform: scaleX(-1);
+                &.flip {
+                    transform: scaleX(-1);
+                }
             }
         }
     }
@@ -98,7 +106,7 @@
                 justify-content: center;
                 align-items: center;     
                 gap: 1rem;           
-                background-color: var(--highlight-color);
+                background: linear-gradient(106deg, rgba(219,30,47,1) 55%, rgba(255,165,109,1) 100%);
                 width: 100%;
                 height: 20rem;
                 border-radius: 2rem;
@@ -120,8 +128,9 @@
                 p {
                     font-size: 1.4rem;
                     font-weight: 400;
+                    line-height: 3rem;
                     text-align: center;
-                    color: rgb(224, 248, 251);
+                    color: white;
                 }
              }
         }
@@ -153,11 +162,15 @@
                 gap: 2rem;
                 h1 {
                     font-size: 4.5rem;
-                    color: var(--title-color);
+                    color: white;
     
                     span {
-                        color: var(--highlight-color);
+                        color: white;
                     }
+                }
+
+                .paragraph-header {
+                    color: white;
                 }
     
                 h2 {
@@ -206,32 +219,9 @@
     }
 }
 
-.button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.5rem 8rem;
-    border: none;
-    border-radius: 1rem;
-    font-weight: 600;
-    font-size: 1.8rem;
-    text-decoration: none;
-    cursor: pointer;
-    transition: 200ms;
-    color: var(--title-color);
 
-    &:hover {
-        transform: translateY(-0.3rem);
-        box-shadow: rgba(238, 85, 34, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-    }
-
-    &.primary {
-        background-color: var(--highlight-color);
-        color: white;  
-    }
-}
 
 p {
     color: #363636cc;
+    line-height: 3.4rem;
 }

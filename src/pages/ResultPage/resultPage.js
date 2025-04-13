@@ -85,7 +85,6 @@ function ResultPage() {
       // 3. Executa o código
       await pyodideInstance.runPythonAsync(pythonCode);
 
-      console.log(inputData)
 
       pyodideInstance.globals.set('input_json', JSON.stringify(inputData));
 

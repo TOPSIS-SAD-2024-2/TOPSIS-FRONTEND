@@ -4,7 +4,8 @@
     display: flex;
     justify-content: space-between;
     padding: 4% 6%;
-    background-color: var(--highlight-color);
+    background: rgb(219,30,47);
+    background: linear-gradient(106deg, rgba(219,30,47,1) 55%, rgba(255,165,109,1) 100%);
     width: 100%;
 
     .footer-informations-container {
@@ -64,8 +65,16 @@
     display: flex;
     justify-content: space-between;
     padding: 4% 6%;
-    background-color: var(--highlight-color);
     width: 100%;
+
+    .footer-informations-container {
+        & p {
+            color: #ffffff;
+            font-size: 1.6rem;
+            line-height: 3.4rem;
+            text-align: justify;
+        }
+    }
 
     .footer-list-info-container {
         display: flex;

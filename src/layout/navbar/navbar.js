@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import "./navbar.css"; 
 
 const Navbar = () => {
+
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="navbar-container">
+    <nav className={`navbar-container ${isScrolled ? "scrolled" : ""}`}>
       <div className="logo-container"  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
         <h1 className="name-logo">TOPSIS</h1>
       </div>

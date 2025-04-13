@@ -14,7 +14,7 @@ const Home = () => {
             <div className="section-informations-container">
               
                 <h1>Bem-vindo ao Método <span>TOPSIS</span></h1>
-                <p>
+                <p className="paragraph-header">
                     O <strong>Técnica para Ordem de Preferência por Similaridade com a Solução Ideal</strong> 
                     (TOPSIS) é um método de tomada de decisão multicritério amplamente utilizado para 
                     escolher a melhor alternativa entre várias opções, considerando diferentes critérios de 
@@ -22,7 +22,7 @@ const Home = () => {
                 </p>
 
                 <Link to="/guide">
-                  <button className="button primary">
+                  <button className="button terciary">
                     Explorar Método
                     <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
                   </button>
@@ -31,8 +31,7 @@ const Home = () => {
             </div>
 
             <figure className="figure">
-                <img className="flip" src="assets/Innovation.gif" alt="Logo" />
-                
+              <img src="assets/header.svg" />
             </figure>
         </header>
 
@@ -54,10 +53,10 @@ const Home = () => {
             </ul>
         </section>
 
-        <section className="section-with-img-container" id="howItWorks">
+        <section className="section-with-img-container different-background" id="howItWorks">
 
             <figure className="figure">
-              <img src="assets/Questions.svg" alt="Logo" />
+              <img src="assets/question.svg" alt="Logo" />
             </figure>
 
             <div className="section-informations-container">
@@ -69,7 +68,7 @@ const Home = () => {
             </div>
         </section>
       
-        <section className="section-with-img-container different-background" id="praticalExample">
+        <section className="section-with-img-container " id="praticalExample">
           <div className="section-informations-container">
             <h2>Exemplo prático 📊</h2>
             <p>
@@ -84,14 +83,14 @@ const Home = () => {
           </div>
 
           <figure className="figure">
-              <img className="flip" src="assets/Good team.svg" alt="Logo" />
+              <img  src="assets/example.svg" alt="Logo" />
           </figure>
         </section>
 
   
-        <section className="section-with-img-container">
+        <section className="section-with-img-container different-background">
           <figure className="figure">
-              <img className="flip" src="assets/Startup.svg" alt="Logo" />
+              <img className="flip" src="assets/continue.svg" alt="Logo" />
           </figure>
           <div className="section-informations-container">
             <h2>Vamos começar? 🚀</h2>
@@ -100,7 +99,7 @@ const Home = () => {
             </p>
 
 
-            <Link to="/TopsisForm">
+            <Link  to="/guide">
               <button className="button primary">
                 Explorar Método
                 <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
